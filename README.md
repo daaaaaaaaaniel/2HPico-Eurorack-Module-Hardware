@@ -63,7 +63,7 @@ It should be ready to go. You can load up the HWtest sketch and run it to check 
 
 ***Trimming the DAC output***
 
-Load up the ADSR app or mod the HWtest sketch so the I2S code is sending the value 0 to the DACs. Measure the level at the output jacks or at U6 pins 1 and 14 and trim to get as close to 0V as possible. There will probably be a few mV difference between the channels. 
+Load up the ADSR app or mod the HWtest sketch so the I2S code is sending the value 0 to the DACs. Measure the level at the output jacks or at U6 pins 1 and 14 and trim RV1 to get as close to 0V as possible. There will probably still be a few mV difference between the channels. 
 Its set up for +-5V output corresponding to -32767 and 32767 DAC values respectively (output amp inverts the DAC signals). If you want higher output levels you can mod the output stage gain but keep in mind the offset and the lowpass filters also have to be recalculated.
 
 
