@@ -10,7 +10,7 @@ See the main repository for 2HPico Pico Arduino sketches to run on it.
 
 ***General notes on the design***
 
-Waveshare (and others) make RP2040 and RP2350 boards with this small form factor and pinout. The RP2350 has much better performance but for simple things like sequencers, ADSR, LFO etc the RP2040 should work OK. Core 0 runs the main processing loop for the UI and control,
+Waveshare (and others) make RP2040 and RP2350 boards with a much smaller form factor than the Raspberry Pi Pico and Pico 2 boards which make a compact 2HP module possible.The RP2350 has much better performance but for simple things like sequencers, ADSR, LFO etc the RP2040 should work OK. Core 0 runs the main processing loop for the UI and control,
 core 1 runs the DSP and sends samples to the I2S driver. The code has an option for monitoring the performance of core 1 with a scope. If enabled you will see a pulse on GPIO 8 that indicates how much time core 1 is spending processing samples. If its high more than 100% of the time you will get audio dropouts - time to overclock or optimize your code some more!
 
 The PT8211 16 bit stereo R2R DAC is very inexpensive and has proven so far to be quite accurate and consistent from one chip to another (provided they aren't defective - see caveats below). It has no internal antialiasing filters but it works down to DC so can be used as a CV out as well. U6 is a DC coupled antialiasing filter and it also amplifies the DAC output to +-5V eurorack levels.
