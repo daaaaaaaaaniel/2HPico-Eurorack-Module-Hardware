@@ -4,11 +4,13 @@
 KiCad design files, BOM, Gerbers for main board and panel board and 3D printable panel.
 Version 1.0 December 2025
 
+See the main repository for 2HPico Pico Arduino sketches to run on it.
+
 ![](https://github.com/rheslip/2HPico-Eurorack-Module-Hardware/blob/main/Images/IMG_0607.JPG)
 
 ***General notes on the design***
 
-Waveshare (and others) make RP2040 and RP2350 boards with this small form factor and pinout. The RP2350 has much better performance but for simple things like sequencers, ADSR, LFO etc the RP2o40 should work OK. Core 0 runs the main processing loop for the UI and control,
+Waveshare (and others) make RP2040 and RP2350 boards with this small form factor and pinout. The RP2350 has much better performance but for simple things like sequencers, ADSR, LFO etc the RP2040 should work OK. Core 0 runs the main processing loop for the UI and control,
 core 1 runs the DSP and sends samples to the I2S driver. The code has an option for monitoring the performance of core 1 with a scope. If enabled you will see a pulse on GPIO 8 that indicates how much time core 1 is spending processing samples. If its high more than 100% of the time you will get audio droputs - time to overclock or optimize your code some more!
 
 The PT8211 16 bit stereo R2R DAC is very inexpensive and has proven so far to be quite accurate and consistent from one chip to another (provided they aren't defective - see caveats below). It has no internal antialiasing filters but it works down to DC so can be used as a CV out as well. U6 is a DC coupled antialiasing filter and it also amplifies the DAC output to eurorack levels.
@@ -65,9 +67,12 @@ Load up the ADSR app or mod the HWtest sketch so the I2S code is sending the val
 The hardware is set up for +-5V output. If you want higher output levels you can mod the output stage gain - keep in mind the offset and the lowpass filters also have to be recalculated.
 
 
-***Notes on the PT8211 DAC chips*** - I bought 10 on Aliexpress and I got a couple of defective ones. Symptom was no output from either left or right DAC, just a low amplitude glitch at the opamp outputs U6 pins 1 and 14. I suggest you buy from a couple of different vendors and cross your fingers. Alternatively Sparkfun and PJRC sell PT8211 kits for a few dollars that include a PT8211 presumably from a reputable source.
+***Notes on the PT8211 DAC chips*** 
+
+I bought 10 on Aliexpress and I got a couple of defective ones. Symptom was no output from either left or right DAC, just a low amplitude glitch at the opamp outputs U6 pins 1 and 14. I suggest you buy from a couple of different vendors and cross your fingers. Alternatively Sparkfun and PJRC sell PT8211 kits for a few dollars that include a PT8211 presumably from a reputable source.
 
 ***Notes on the Panel***
+
 STL file is included for a 3D printable panel which includes a collimator that sits over the RGB LED. I glued a short piece of transparent filament inside the collimator as a light pipe - for some reason commercial acrylic light pipes are stupidly expensive. The RGB LED is very bright even on 3.3v so I cut the level back in the code. I will probably design a silkscreened FR4 panel for it at some point.
 
 
