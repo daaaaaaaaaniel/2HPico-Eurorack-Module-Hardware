@@ -4,7 +4,7 @@
 KiCad design files, BOM, Gerbers for main board and panel board and 3D printable panel.
 Version 1.0 December 2025
 
-See the repository ![](https://github.com/rheslip/2HPico-Sketches for Pico Arduino sketches to run on it.
+See the repository ![](https://github.com/rheslip/2HPico-Sketches) for Pico Arduino sketches to run on it.
 
 ![](https://github.com/rheslip/2HPico-Eurorack-Module-Hardware/blob/main/Images/IMG_0607.JPG)
 
